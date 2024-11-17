@@ -1,0 +1,419 @@
+:root {
+    --primary-color: #6200ee;    /* Material Design Purple */
+    --primary-light: #8f3bff;    /* Lighter Purple */
+    --primary-dark: #3700b3;     /* Darker Purple */
+    --secondary-color: #03dac6;  /* Material Design Secondary */
+    --background-color: #f0f2f5;
+    --surface-color: #ffffff;
+    --text-primary: #1c1e21;
+    --text-secondary: #65676b;
+    --border-color: #dadde1;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --primary-color: #9d4edd;    /* 밝은 보라색 */
+    --primary-light: #c77dff;    /* 더 밝은 보라색 */
+    --primary-dark: #7b2cbf;     /* 어두운 보라색 */
+    --secondary-color: #4CAF50;  /* 기존 초록색 유지 */
+    --background-color: #18191a;
+    --surface-color: #242526;
+    --text-primary: #e4e6eb;
+    --text-secondary: #b0b3b8;
+    --border-color: #3e4042;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: var(--surface-color);
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    margin: 0 2rem;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.secondary-button:hover {
+    background-color: rgba(98, 0, 238, 0.1);
+}
+
+.study-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: var(--surface-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.level-selector {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.level-selector select {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.sentence {
+    font-size: 1.6rem;
+    margin: 2rem 0;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+.hidden-word {
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    letter-spacing: 12px;
+    margin: 2rem 0;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.meaning {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 20px;
+}
+
+.word-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.word-item {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.word-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.search-container {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.search-container input {
+    padding: 16px 16px 16px 48px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+
+.add-word-form {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.add-word-form h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        height: auto;
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+
+    .level-selector {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--background-color);
+}
+
+[data-theme="dark"] .study-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] input[type="text"]:focus {
+    box-shadow: 0 0 0 2px rgba(46, 137, 255, 0.2);
+}
+
+[data-theme="dark"] ::selection {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+}
+
+nav button {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+nav button.active.secondary-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+nav button.active::after {
+    display: none;
+}
+
+nav button.active:hover {
+    opacity: 0.9;
+    background-color: var(--primary-color);
+}
+
+.secondary-button:hover {
+    background-color: rgba(98, 0, 238, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.logo svg {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF6B6B 0%, #6200EE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+[data-theme="dark"] .logo svg circle {
+    stroke: url(#logoGradient);
+}
+
+[data-theme="dark"] .logo svg text {
+    fill: url(#logoGradient);
+}
+
+[data-theme="dark"] .logo-text {
+    background: linear-gradient(135deg, #FF6B6B 0%, #8F3BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.celebration {
+    animation: celebrate 0.5s ease;
+}
+
+.correct-answer {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    opacity: 0;
+    pointer-events: none;
+    animation: confetti-fall 2s ease forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.hint {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 1rem 0;
+    font-style: italic;
+}
+
+.sentence-translation {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 1rem 0;
+    font-style: italic;
+    line-height: 1.6;
+} 
